@@ -27,7 +27,6 @@ public class App {
     func postInit() throws {
         let options = Options(allowedOrigin: .all)
         let cors = CORS(options: options)
-        initializeKueryRoutes(app: self)
         KituraOpenAPI.addEndpoints(to: router)
         router.all("/*", middleware: cors)
         router.delete("/", handler: deleteAllHandler)
